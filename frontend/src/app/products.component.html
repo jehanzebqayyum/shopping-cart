@@ -1,0 +1,35 @@
+<div class="container-fluid">
+<table class="table table-striped table-bordered table-hover table-sm">
+ 	<thead>
+    <tr>
+      <th class="w-25">Product</th>
+      <th class="w-25">Price ($)</th>
+      <th class="w-15"></th>
+      <th class="w-10">Order Quantity</th>
+      <th class="w-10">Line Item Price ($)</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<tr *ngFor="let prod of products">
+  		<td>{{prod.name}}</td>
+  		<td>{{prod.price}}</td>
+  		<td>
+  			<div class="btn-group" role="group" aria-label="Basic example">	
+  				<button type="button" class="btn btn-secondary" (click)="add(prod)">+</button>
+  				<button type="button" class="btn btn-secondary" (click)="delete(prod)">-</button>
+  			</div>
+  		</td>
+  		<td>{{prod.quantity}}</td>
+  		<td>{{prod.quantity ? prod.quantity * prod.price : ""}}</td>
+  	</tr>
+  	<tr>
+  		<td colspan="3">Total</td>
+      <td>{{getCartTotalCount()}}</td>
+  		<td>{{getCartTotalPrice()}}</td>
+  	</tr>
+  </tbody>
+
+</table>
+
+
+</div>

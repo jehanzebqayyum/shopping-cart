@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    command: mongod --smallfiles
+  
+  frontend:
+    build: frontend
+    ports:
+      - "4200:4200"
+    image:
+      jqayyum/shopping-cart-frontend
+
+  backend: 
+    build: backend
+    ports:
+      - "8080:8080"
+    image:
+      jqayyum/shopping-cart-backend
+    environment:
+      SPRING_DATA_MONGODB_URI: 'mongodb://db:27017/test'
