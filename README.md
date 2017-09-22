@@ -1,7 +1,7 @@
 # shopping-cart
 
 Shopping cart sample application using:
-* angular js 2 deployed on node server
+* angular js 4 deployed on node web server
 * spring boot rest api on tomcat
 * mongodb
 
